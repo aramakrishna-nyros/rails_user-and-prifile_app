@@ -1,0 +1,55 @@
+<% if user_signed_in? %>
+  
+    <% if current_user.profile %>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-primary navbar-right menu' %>
+      </nav>
+      
+      <div style = "padding-top:50px">
+        <strong>Current User Details:</strong><br>
+        Signed in as <strong><%= current_user.email %></strong>.<br>
+        <h1>Welcome to Your Profile</h1>
+      </div>
+
+      <dl class="dl-horizontal">
+      
+        <dt><strong>Name</strong>:</dt><dd><%= current_user.profile.name %></dd>
+      
+        <dt><strong>Gender</strong>:</dt><dd><%= current_user.profile.gender %></dd>
+      
+        <dt><strong>DOB</strong>:</dt><dd><%= current_user.profile.dob %></dd>
+      
+        <dt><strong>Profession</strong>:</dt><dd><%= current_user.profile.profession %></dd>
+
+      </dl>
+      <% @profiles.each do |prfl| %>
+        <%= link_to 'edit', :method => :edit, :class => 'btn btn-default btn-xs' %>
+      <%end%>
+    <% else %> 
+      <nav class="navbar navbar-default navbar-fixed-top">       
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-primary navbar-right menu' %> 
+        <%= link_to "Create profile", new_profile_path, :method => :get, :class => 'btn btn-primary navbar-right menu' %>
+      </nav>
+      <div style = "padding-top:50px">
+        <strong><%= current_user.email %></strong> has no profile. If you want to create your profile goto  <%= link_to 'create profile', new_profile_path %>         
+      </div>
+    <% end %>        
+<% end %> 
+       
+<script type = "text/javascript">
+$(document).on("click", "#viewclick", function(){
+     $('.view_current_profile').fadeOut();
+});
+  
+</script> 
+
+<style type = "text/css">
+  .menu{
+    padding: 6px;
+    margin: 8px;
+  }
+</style>
+
+
+
+ 

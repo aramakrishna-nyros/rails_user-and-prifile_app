@@ -1,0 +1,54 @@
+<%= form_for @profile, :html => { :class => "form-horizontal profile", multipart: true  } do |f| %>
+   
+  <div class = "container">
+     
+    <div class="form-group">
+      <%= f.label :user_id, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-4">
+        <%= f.text_field :user_id, :class => 'form-control' %>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <%= f.label :name, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-4">
+        <%= f.text_field :name, :class => 'form-control' %>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <%= f.label :gender, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-4">
+        <%= f.text_field :gender, :class => 'form-control' %>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <%= f.label :dob, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-4">
+        <%= f.text_field :dob, :class => 'form-control' %>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <%= f.label :profession, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-4">
+        <%= f.text_field :profession, :class => 'form-control' %>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <%= f.label :mobile_no, :class => 'control-label col-sm-4' %>
+      <div class="col-sm-4">
+        <%= f.text_field :mobile_no, :class => 'form-control' %>
+      </div>
+    </div>
+
+     <div class="form-group">
+      <div class="col-sm-offset-4 col-sm-4">
+        <%= f.submit nil, :class => 'btn btn-primary' %>
+      </div>
+    </div>
+
+  </div>  
+<% end %>
